@@ -1,0 +1,29 @@
+body {
+  background-color: grey;
+  color: white;
+}
+
+.header {
+  display: flex;
+  height: 12vh;
+  border: 1px solid black;
+  align-items: center;
+  gap: 10px;
+  background-color: #21222a;
+  padding: 12px;
+}
+
+.react-logo {
+  width: 70px;
+}
+
+.react-heading {
+  color: #00d8ff;
+}
+
+.main {
+  height: 100%;
+  background-color: #282d35;
+  padding: 20px;
+  border: 1px solid black;
+}
