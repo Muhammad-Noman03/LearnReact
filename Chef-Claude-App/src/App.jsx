@@ -1,4 +1,4 @@
-import { useState, version } from 'react'
+
 import './App.css'
 import Header from './components/Header.jsx'
 import Main from './components/Main.jsx'
@@ -8,7 +8,6 @@ function App() {
 
   return (
     <>
-      <h1>vite + react {version}</h1>
       <Header />
       <Main />
       <Footer />
