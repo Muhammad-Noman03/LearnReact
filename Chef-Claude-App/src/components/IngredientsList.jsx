@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 const IngredientsList = (props) => {
 
   const ingredientList = props.ingredients.map((ingredient) => (
@@ -19,7 +21,7 @@ const IngredientsList = (props) => {
             <p className="mt-2 text-sm sm:text-base">Generate a recipe from your list of ingredients.</p>
           </div>
           <button
-            onClick={props.toggleRecipe}
+            onClick={props.getRecipe}
             className="w-full sm:w-[150px] mt-4 p-2 font-inter rounded-md border-none bg-[#979769] text-[#FAFAF8] text-lg sm:text-xl font-medium"
           >
             Get a recipe
