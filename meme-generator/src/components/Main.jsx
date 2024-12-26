@@ -9,15 +9,31 @@ export default function Main() {
         imageURL: "http://i.imgflip.com/1bij.jpg"
     })
 
+    const [allMemes, setAllMemes] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+            .then(response => response.json())
+            .then(data => setAllMemes(data.data.memes))
+    }, [])
+
     function handleChange(event) {
         const { value, name } = event.target
         setMeme(prevName => ({
             ...prevName,
             [name]: value
         }))
-
-
     }
+
+    function getMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const newMemeUrl = allMemes[randomNumber].url
+        setMeme(prevName => ({
+            ...prevName,
+            imageURL: newMemeUrl
+        }))
+    }
+
 
     return (
         <main className="flex flex-col items-center p-4 sm:p-6 md:p-8 bg-gray-100 min-h-screen">
@@ -45,7 +61,7 @@ export default function Main() {
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     />
                 </label>
-                <button className="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                <button onClick={getMemeImage} className="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
                     Get a new meme image 🖼
                 </button>
             </div>
